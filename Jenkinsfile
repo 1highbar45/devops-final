@@ -7,7 +7,7 @@ pipeline {
             }
         }
 
-        stage('Docker') {
+        stage('Build') {
             steps {
                 withDockerRegistry(credentialsId: 'cred-docker-hub', url: '') {
                     script {

@@ -2,7 +2,6 @@ pipeline {
     agent any
     
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
         DOCKER_BACKEND = "your-dockerhub-username/my-server-express"
         DOCKER_FRONTEND = "your-dockerhub-username/my-client-react"
         DOCKER_PROXY = "your-dockerhub-username/my-proxy"
@@ -11,13 +10,13 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git branch: 'main', credentialsId: 'your-git-credentials', url: 'your-repository-url'
+                git branch: 'main', credentialsId: '1highbar45', url: 'https://github.com/1highbar45/devops-final.git'
             }
         }
 
         stage('Docker Build and Push') {
             steps {
-                withDockerRegistry(credentialsId: 'dockerhub', url: '') {
+                withDockerRegistry(credentialsId: 'cred-docker-hub', url: '') {
                     script {
                         // Build and push Backend
                         sh "docker build -t ${DOCKER_BACKEND}:latest -f ./my-server-express/Dockerfile ./my-server-express"
@@ -57,14 +56,14 @@ pipeline {
         }
     }
     
-    post {
-        always {
-            emailext body: 'Pipeline execution completed',
-                     subject: 'Jenkins Pipeline Status',
-                     to: 'your-email@example.com'
+    // post {
+    //     always {
+    //         emailext body: 'Pipeline execution completed',
+    //                  subject: 'Jenkins Pipeline Status',
+    //                  to: 'your-email@example.com'
             
-            sh 'docker logout'
-            cleanWs()
-        }
-    }
+    //         sh 'docker logout'
+    //         cleanWs()
+    //     }
+    // }
 }

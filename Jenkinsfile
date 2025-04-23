@@ -12,7 +12,7 @@ pipeline {
                 withDockerRegistry(credentialsId: 'cred-docker-hub', url: '') {
                     script {
                         // Build and push image on docker hub
-                        sh "docker build -t sigmaduck125/mediplus-lite"
+                        sh "docker build -t sigmaduck125/mediplus-lite ."
                         sh "docker push sigmaduck125/mediplus-lite"
                     }
                 }

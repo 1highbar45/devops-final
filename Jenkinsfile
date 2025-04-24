@@ -32,14 +32,15 @@ pipeline {
         }
     }
     
-    // post {
-    //     always {
-    //         emailext body: 'Pipeline execution completed',
-    //                  subject: 'Jenkins Pipeline Status',
-    //                  to: 'your-email@example.com'
-            
-    //         sh 'docker logout'
-    //         cleanWs()
-    //     }
-    // }
+    post {
+        always {
+            mail bcc: '', 
+            body: 'Build ${currentBuild.currentResult}"', 
+            cc: '', 
+            from: '', 
+            replyTo: '', 
+            subject: 'Pipeline Result', 
+            to: 'vuanh1228@gmail.com'
+        } 
+    }
 }

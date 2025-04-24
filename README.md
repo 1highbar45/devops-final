@@ -28,5 +28,14 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.0/docker
 sudo chmod +x /usr/local/bin/docker-compose
 14. Verify Docker Compose Installation:
 docker-compose --version
-15. Log out and Log back in:
-exit
+15. Run image on remote EC2 instance:
+docker run -d -p 80:80 sigmaduck125/mediplus-lite
+16. Delete container and image:
+docker stop <container_id>
+docker rm <container_id>
+docker image rm <image_id>
+17. Install Docker Swarm:
+docker swarm init
+docker service create --name myserver --replicas 2 --publish 80:80 sigmaduck125/mediplus-lite
+18. Check Swarm Services:
+docker service ls

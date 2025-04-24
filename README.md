@@ -39,3 +39,5 @@ docker swarm init
 docker service create --name myserver --replicas 2 --publish 80:80 sigmaduck125/mediplus-lite
 18. Check Swarm Services:
 docker service ls
+19. Update image:
+docker service update --image sigmaduck125/mediplus-lite myserver

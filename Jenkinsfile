@@ -19,17 +19,17 @@ pipeline {
             }
         }
         
-        // stage("Deploy"){
-        //     steps{
-        //         sshagent(['ubuntu-server']) {
-        //             // some block
-        //             sh """
-        //                 ssh -o StrictHostKeyChecking=no ubuntu@13.239.27.136 << 'EOF'
-        //                 sudo docker service update --image sigmaduck125/mediplus-lite:latest webserver
-        //             """                
-        //         }            
-        //     }
-        // }
+        stage("Deploy"){
+            steps{
+                sshagent(['ec2']) {
+                    // some block
+                    sh """
+                        ssh -o StrictHostKeyChecking=no ubuntu@13.55.226.110 << 'EOF'
+                        sudo docker service update --image sigmaduck125/mediplus-lite:latest myserver
+                    """                
+                }            
+            }
+        }
     }
     
     // post {

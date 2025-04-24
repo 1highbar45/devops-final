@@ -35,7 +35,7 @@ pipeline {
     post {
         always {
             mail bcc: '', 
-            body: 'Build ${currentBuild.currentResult}"', 
+            body: 'Build ${currentBuild.currentResult}', 
             cc: '', 
             from: '', 
             replyTo: '', 

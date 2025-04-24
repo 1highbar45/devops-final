@@ -1,6 +1,6 @@
 ## Install Docker and Docker Compose on Ubuntu EC2 Instance
 1. Connect to EC2 Instance:
-ssh -i my-kp.pem ubuntu@13.239.27.136
+ssh -i my-kp.pem ubuntu@13.55.226.110
 2. Use root user:
 sudo su
 3. Update the Package Index:

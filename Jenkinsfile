@@ -24,7 +24,7 @@ pipeline {
                 sshagent(['ec2']) {
                     // some block
                     sh """
-                        ssh -o StrictHostKeyChecking=no ubuntu@13.55.226.110 << 'EOF'
+                        ssh -o StrictHostKeyChecking=no ubuntu@54.252.145.85 << 'EOF'
                         sudo docker service update --image sigmaduck125/mediplus-lite:latest myserver
                     """                
                 }            
